@@ -9,7 +9,10 @@ import {
 import { theme } from '../styled-components/theme';
 
 const GlobalStyle = createGlobalStyle`
-  margin: 10px;
+  body {
+    margin: 10px;
+    text-align: center;
+  }
 `;
 
 interface IProps {

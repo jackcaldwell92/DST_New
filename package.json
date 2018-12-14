@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "gatsby-ts-styled-component-boilerplate",
+  "description": "Starter for Gatsby featuring preconfigured typescript and styled components",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jack Caldwell <jackcaldwell92@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
     "gatsby": "^2.0.19",
@@ -42,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/jackcaldwell92/gatsby-ts-styled-components-boilerplate"
   }
 }
