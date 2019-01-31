@@ -25,6 +25,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
   ],
   siteMetadata: {
-    title: 'Project Title',
+    title: 'DS Textiles',
   },
 };

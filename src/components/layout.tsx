@@ -9,9 +9,14 @@ import {
 import { theme } from '../styled-components/theme';
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Karla|Montserrat');
+  * {
+    margin: 0;
+    padding: 0;
+  }
   body {
-    margin: 10px;
     text-align: center;
+    font-family: Montserrat;
   }
 `;
 
