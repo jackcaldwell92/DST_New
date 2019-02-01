@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     text-align: center;
     font-family: Montserrat;
+    overflow-x: hidden;
   }
 `;
 

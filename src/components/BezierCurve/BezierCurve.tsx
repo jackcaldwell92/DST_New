@@ -23,6 +23,8 @@ const move = keyframes`
 
 const Svg = styled.svg<{ animationSpeed: number }>`
   animation: ${move} ${props => props.animationSpeed}s linear infinite;
+  width: 200vw;
+  max-width: 200vw;
 `;
 
 export class BezierCurve extends React.Component<Props> {
@@ -46,7 +48,13 @@ export class BezierCurve extends React.Component<Props> {
 
   render() {
     return (
-      <div style={{ maxWidth: '100vw', opacity: this.props.opacity }}>
+      <div
+        style={{
+          maxWidth: '100vw',
+          opacity: this.props.opacity,
+          overflowX: 'hidden',
+        }}
+      >
         <Svg
           animationSpeed={this.props.animationSpeed}
           width={this.width * 2}
