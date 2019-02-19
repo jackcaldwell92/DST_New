@@ -30,23 +30,21 @@ const Svg = styled.svg<{ animationSpeed: number }>`
 export class BezierCurve extends React.Component<Props> {
   width = window.innerWidth;
 
-  points = [
-    [0, 250],
-    [0, this.props.yValues[0]],
-    [(2 * this.width) / 8, this.props.yValues[1]],
-    [(2 * this.width) / 4, this.props.yValues[2]],
-    [((2 * this.width) / 8) * 3, this.props.yValues[3]],
-    [(2 * this.width) / 2, this.props.yValues[4]],
-    [((2 * this.width) / 8) * 5, this.props.yValues[5]],
-    [((2 * this.width) / 4) * 3, this.props.yValues[6]],
-    [((2 * this.width) / 8) * 7, this.props.yValues[7]],
-    [2 * this.width, this.props.yValues[8]],
-    [2 * this.width, 250],
-  ];
-
-  path = <path d={svgPath(this.points, bezierCommand)} />;
-
   render() {
+    const points = [
+      [0, 250],
+      [0, this.props.yValues[0]],
+      [(2 * this.width) / 8, this.props.yValues[1]],
+      [(2 * this.width) / 4, this.props.yValues[2]],
+      [((2 * this.width) / 8) * 3, this.props.yValues[3]],
+      [(2 * this.width) / 2, this.props.yValues[4]],
+      [((2 * this.width) / 8) * 5, this.props.yValues[5]],
+      [((2 * this.width) / 4) * 3, this.props.yValues[6]],
+      [((2 * this.width) / 8) * 7, this.props.yValues[7]],
+      [2 * this.width, this.props.yValues[8]],
+      [2 * this.width, 250],
+    ];
+    const path = <path d={svgPath(points, bezierCommand)} />;
     return (
       <div
         style={{
@@ -61,7 +59,7 @@ export class BezierCurve extends React.Component<Props> {
           height={250}
           fill={this.props.fillColor}
         >
-          {this.path}
+          {path}
         </Svg>
       </div>
     );

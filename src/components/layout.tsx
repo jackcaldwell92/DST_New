@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     font-family: Montserrat;
     overflow-x: hidden;
+    background-image: linear-gradient(
+    45deg,
+    ${props => props.theme.darkNavy},
+    ${props => props.theme.blue}
+  );
   }
 `;
 

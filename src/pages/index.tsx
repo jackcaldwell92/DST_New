@@ -1,6 +1,6 @@
 import { TweenMax } from 'gsap';
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BezierCurves } from '../components/BezierCurve/BezierCurves';
 import {
   Button,
@@ -10,6 +10,7 @@ import {
   Title,
 } from '../components/Home';
 import Layout from '../components/Layout';
+import { throttle } from 'lodash';
 
 const IndexPage = () => {
   let titleRef: HTMLHeadingElement | null;
@@ -17,14 +18,26 @@ const IndexPage = () => {
   let subHeaderRef: HTMLHeadingElement | null;
   let buttonRef: HTMLButtonElement | null;
 
+  const [flattenAmount, setFlattenAmount] = useState(0);
+
   useEffect(() => {
     TweenMax.staggerFrom(
-      [headerRef, subHeaderRef, titleRef, buttonRef],
+      [titleRef, headerRef, subHeaderRef, buttonRef],
       2,
       { opacity: 0 },
-      0.6,
+      0.4
     );
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', throttle(() => handleScroll(), 100));
   });
+
+  const handleScroll = () => {
+    const scrollAmount =
+      (window.innerHeight - window.scrollY) / window.innerHeight;
+    setFlattenAmount(1 - scrollAmount);
+  };
 
   return (
     <Layout>
@@ -39,7 +52,7 @@ const IndexPage = () => {
               From concept to complete
             </SubHeader>
             <Button ref={ref => (buttonRef = ref)}>Learn More</Button>
-            <BezierCurves />
+            <BezierCurves flattenAmount={flattenAmount} />
           </div>
         </HeaderBody>
         <div style={{ height: '100vh' }} />
