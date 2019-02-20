@@ -20,8 +20,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     background-image: linear-gradient(
     45deg,
-    ${props => props.theme.darkNavy},
-    ${props => props.theme.blue}
+    ${props => props.theme.darkerNavy},
+    ${props => props.theme.darkBlue}
   );
   }
 `;

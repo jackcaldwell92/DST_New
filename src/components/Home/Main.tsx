@@ -1,0 +1,33 @@
+import * as React from 'react';
+import styled from '../../styled-components/styled-components';
+
+const Text = styled.p`
+  color: ${props => props.theme.white};
+  text-align: left;
+  max-width: 50%;
+`;
+
+const Body = styled.div`
+  padding: 2rem;
+`;
+
+const Header = styled.h3`
+  color: ${props => props.theme.lighterBlue};
+  text-align: left;
+  margin: 2rem 0rem;
+`;
+
+export const Main = () => (
+  <Body>
+    <Header>About</Header>
+    <Text>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Text>
+  </Body>
+);

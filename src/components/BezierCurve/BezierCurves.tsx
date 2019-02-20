@@ -29,7 +29,7 @@ export const BezierCurves = ({ flattenAmount }: Props) => {
         <BezierCurve
           yValues={getAdjustedCurveValues(bezierCurve1YValues)}
           fillColor="hsl(231, 19%, 65%)"
-          opacity={0.1}
+          opacity={0.5}
           animationSpeed={20}
         />
       </BezierContainer>
@@ -37,7 +37,7 @@ export const BezierCurves = ({ flattenAmount }: Props) => {
         <BezierCurve
           yValues={getAdjustedCurveValues(bezierCurve2YValues)}
           fillColor="hsl(344, 24%, 80%)"
-          opacity={0.2}
+          opacity={0.4}
           animationSpeed={25}
         />
       </BezierContainer>
@@ -45,7 +45,7 @@ export const BezierCurves = ({ flattenAmount }: Props) => {
         <BezierCurve
           yValues={getAdjustedCurveValues(bezierCurve3YValues)}
           fillColor="hsl(332, 8%, 66%)"
-          opacity={0.1}
+          opacity={0.3}
           animationSpeed={16}
         />
       </BezierContainer>

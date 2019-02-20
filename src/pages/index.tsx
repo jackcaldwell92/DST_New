@@ -1,4 +1,5 @@
 import { TweenMax } from 'gsap';
+import { throttle } from 'lodash';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { BezierCurves } from '../components/BezierCurve/BezierCurves';
@@ -9,8 +10,11 @@ import {
   SubHeader,
   Title,
 } from '../components/Home';
+import { Main } from '../components/Home/Main';
+import { StickyHeader } from '../components/Home/StickyHeader';
 import Layout from '../components/Layout';
-import { throttle } from 'lodash';
+import styled from '../styled-components/styled-components';
+import headerImage from '../Images/slidebergan.jpg';
 
 const IndexPage = () => {
   let titleRef: HTMLHeadingElement | null;
@@ -30,7 +34,7 @@ const IndexPage = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll', throttle(() => handleScroll(), 100));
+    window.addEventListener('scroll', throttle(() => handleScroll(), 16));
   });
 
   const handleScroll = () => {
@@ -39,10 +43,27 @@ const IndexPage = () => {
     setFlattenAmount(1 - scrollAmount);
   };
 
+  const handleLearnMoreClick = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  };
+
+  const Image = styled.img`
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    opacity: ${(1 - flattenAmount) / 10};
+    height: 100vh;
+  `;
+
   return (
     <Layout>
       <>
         <HeaderBody>
+          <Image src={headerImage} />
           <div>
             <Title ref={ref => (titleRef = ref)}>DS Textile Sourcing</Title>
             <Header ref={ref => (headerRef = ref)}>
@@ -51,11 +72,23 @@ const IndexPage = () => {
             <SubHeader ref={ref => (subHeaderRef = ref)}>
               From concept to complete
             </SubHeader>
-            <Button ref={ref => (buttonRef = ref)}>Learn More</Button>
+            <Button
+              ref={ref => (buttonRef = ref)}
+              onClick={() => handleLearnMoreClick()}
+            >
+              Learn More
+            </Button>
             <BezierCurves flattenAmount={flattenAmount} />
           </div>
         </HeaderBody>
-        <div style={{ height: '100vh' }} />
+        <div style={{ height: '100vh' }}>
+          {flattenAmount >= 1 ? (
+            <>
+              <StickyHeader />
+              <Main />
+            </>
+          ) : null}
+        </div>
       </>
     </Layout>
   );
